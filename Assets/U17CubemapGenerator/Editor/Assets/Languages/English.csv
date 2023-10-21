@@ -1,0 +1,54 @@
+Language,Language
+TabMain,Main
+TabPreview,Preview
+TabSettings,Settings
+HideOtherUIs,Hide Other UIs
+PreviewObject,Preview object
+ResetPreviewRotation,Reset preview rotation
+PreviewSupersampling,Preview supersampling
+PreviewSkybox,Preview skybox
+PreviewObjectSphere,Sphere
+PreviewObjectCube,Cube
+SelectInputSource,Select Input source
+InputSourceCurrentScene,Current scene
+InputSourceSixSided,6-sided
+InputSourceCubemap,Cubemap
+SpecificCamera,Specific camera
+SelectOutputLayout,Select Output-layout
+OutputLayoutCrossHorizontal,Cross horizontal
+OutputLayoutCrossVertical,Cross vertical
+OutputLayoutStraitHorizontal,Strait horizontal
+OutputLayoutStraitVertical,Strait vertical
+OutputLayoutSixSided,Six sided
+OutputLayoutEquirectangular,Equirectangular
+OutputLayoutMatcap,Matcap
+InputSpecificCamera,Specific camera
+InputTextureWidth,Texture width
+InputCubemap,Cubemap
+InputLeft,Left
+InputRight,Right
+InputTop,Top
+InputBottom,Bottom
+InputFront,Front
+InputBack,Back
+Redraw,Redraw
+OutputFormatHDR,HDR(EXR format)
+OutputSRGB,sRGB
+OutputCubemap,Cubemap
+OutputGenerateMipmap,Generate Mipmap
+EquirectangularRotation,Equirectangular rotation
+FillMatcapOutsideByEdgeColor,Fill Matcap outside by edge color
+Export,Export
+AdviceSetCubemap,Set cube map
+AdviceSetSixSidedTexture,Set 6-sided texture
+AdviceTextureWidthAndHeightEqual,Make sure that the height and width of the texture are the same
+AdviceEachTextureFaceSameSize,Keep the texture size the same on each side
+AdviceEachTextureFacesSameFormat,Make sure the format of the textures on each side is the same
+TextureShape,TextureShape
+TextureShape2D,2D
+TextureShapeCube,Cube
+UsingCameraAngles,Using camera angles
+HorizontalRotation,Horizontal rotation
+ExposureOverride,exposure Override
+FixedExposure,FixedExposure
+Compensation,Compensation
