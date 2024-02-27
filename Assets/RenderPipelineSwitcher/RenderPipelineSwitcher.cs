@@ -7,7 +7,7 @@ using UnityEngine.Rendering;
 
 #nullable enable
 
-namespace Ushino17
+namespace Uchuhikoshi.RenderPipelineSwitcher
 {
 	[InitializeOnLoad]
 	public static class RenderPipelineSwitcher

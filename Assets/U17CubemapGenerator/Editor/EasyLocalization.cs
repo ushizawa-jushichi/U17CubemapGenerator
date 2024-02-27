@@ -5,7 +5,7 @@ using UnityEngine;
 
 #nullable enable
 
-namespace Ushino17
+namespace Uchuhikoshi.U17CubemapGenerator
 {
 	public enum TextId
 	{

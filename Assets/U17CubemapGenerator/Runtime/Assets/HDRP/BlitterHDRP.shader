@@ -1,4 +1,4 @@
-Shader "Ushino17/U17CubemapGenerator/BlitterHDRP"
+Shader "Uchuhikoshi/U17CubemapGenerator/BlitterHDRP"
 {
 	Properties
 	{

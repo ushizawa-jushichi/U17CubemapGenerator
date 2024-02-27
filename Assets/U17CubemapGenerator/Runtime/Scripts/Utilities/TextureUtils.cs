@@ -4,7 +4,7 @@ using UnityEngine.Experimental.Rendering;
 
 #nullable enable
 
-namespace Ushino17
+namespace Uchuhikoshi
 {
 	public static class TextureUtils
 	{

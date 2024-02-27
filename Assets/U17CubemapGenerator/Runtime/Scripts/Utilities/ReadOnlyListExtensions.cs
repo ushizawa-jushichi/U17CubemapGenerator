@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Ushino17
+namespace Uchuhikoshi
 {
     public static class ReadOnlyListExtensions
     {

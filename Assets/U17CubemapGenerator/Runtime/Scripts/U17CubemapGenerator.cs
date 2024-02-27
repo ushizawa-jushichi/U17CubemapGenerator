@@ -12,7 +12,7 @@ using UnityEngine.SceneManagement;
 #nullable enable
 #pragma warning disable 414 // The field '' is assigned but its value is never used
 
-namespace Ushino17
+namespace Uchuhikoshi.U17CubemapGenerator
 {
 	public interface IU17CubemapGenerator
 	{
@@ -256,19 +256,19 @@ namespace Ushino17
 			{
 #if USING_URP 
 				case RenderPipelineUtils.PipelineType.UniversalPipeline:
-					_shaderBlitter = FindShader("Ushino17/U17CubemapGenerator/BlitterURP");
-					_shaderPreview = FindShader("Ushino17/U17CubemapGenerator/PreviewURP");
+					_shaderBlitter = FindShader("Uchuhikoshi/U17CubemapGenerator/BlitterURP");
+					_shaderPreview = FindShader("Uchuhikoshi/U17CubemapGenerator/PreviewURP");
 					break;
 #endif
 #if USING_HDRP 
 				case RenderPipelineUtils.PipelineType.HDPipeline:
-					_shaderBlitter = FindShader("Ushino17/U17CubemapGenerator/BlitterHDRP");
-					_shaderPreview = FindShader("Ushino17/U17CubemapGenerator/PreviewHDRP");
+					_shaderBlitter = FindShader("Uchuhikoshi/U17CubemapGenerator/BlitterHDRP");
+					_shaderPreview = FindShader("Uchuhikoshi/U17CubemapGenerator/PreviewHDRP");
 					break;
 #endif
 				case RenderPipelineUtils.PipelineType.BuiltInPipeline:
-					_shaderBlitter = FindShader("Ushino17/U17CubemapGenerator/BlitterBuiltin");
-					_shaderPreview = FindShader("Ushino17/U17CubemapGenerator/PreviewBuiltin");
+					_shaderBlitter = FindShader("Uchuhikoshi/U17CubemapGenerator/BlitterBuiltin");
+					_shaderPreview = FindShader("Uchuhikoshi/U17CubemapGenerator/PreviewBuiltin");
 					break;
 				default: throw new InvalidOperationException("Unsupported");
 			}

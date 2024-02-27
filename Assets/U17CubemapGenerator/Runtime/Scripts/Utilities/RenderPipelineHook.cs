@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 
 #nullable enable
 
-namespace Ushino17
+namespace Uchuhikoshi
 {
 	public class RenderPipelineHook : IDisposable
 	{

@@ -9,9 +9,9 @@ using UnityEngine.Rendering.Universal;
 
 #nullable enable
 
-namespace Ushino17
+namespace Uchuhikoshi.RenderPipelineSwitcher
 {
-	[CreateAssetMenu(fileName = "RenderPipelineSwitcherSettingsAsset", menuName = "Ushino17/U17CubemapGenerator/Create RenderPipelineSwitcherSettingsAsset")]
+	[CreateAssetMenu(fileName = "RenderPipelineSwitcherSettingsAsset", menuName = "Uchuhikoshi/RenderPipelineSwitcher/Create RenderPipelineSwitcherSettingsAsset")]
 	public class RenderPipelineSwitcherSettings : ScriptableObject
 	{
 #if USING_HDRP

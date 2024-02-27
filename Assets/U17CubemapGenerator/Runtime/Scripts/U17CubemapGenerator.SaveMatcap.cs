@@ -18,7 +18,7 @@ using UnityEngine.Rendering.Universal;
 #pragma warning disable 414 // The field '' is assigned but its value is never used
 #pragma warning disable 162 // Unreachable code detected
 
-namespace Ushino17
+namespace Uchuhikoshi.U17CubemapGenerator
 {
 	public partial class U17CubemapGenerator : MonoBehaviour, IU17CubemapGenerator
 	{

@@ -10,7 +10,7 @@ using UnityEngine.Rendering;
 using System.Linq;
 using System.IO;
 
-namespace Ushino17
+namespace Uchuhikoshi.U17CubemapGenerator
 {
 	// original: https://light11.hatenadiary.com/entry/2020/02/29/211114
 

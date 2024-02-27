@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable enable
 
-namespace Ushino17
+namespace Uchuhikoshi
 {
 	public static class EnumUtils
 	{

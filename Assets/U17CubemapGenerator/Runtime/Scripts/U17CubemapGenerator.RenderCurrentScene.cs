@@ -13,7 +13,7 @@ using UnityEngine.Rendering.Universal;
 #nullable enable
 #pragma warning disable 618
 
-namespace Ushino17
+namespace Uchuhikoshi.U17CubemapGenerator
 {
 	public partial class U17CubemapGenerator : MonoBehaviour, IU17CubemapGenerator
 	{

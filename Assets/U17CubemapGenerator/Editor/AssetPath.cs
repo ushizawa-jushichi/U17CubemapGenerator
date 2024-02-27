@@ -3,7 +3,7 @@ using UnityEditor;
 
 #nullable enable
 
-namespace Ushino17
+namespace Uchuhikoshi.U17CubemapGenerator
 {
 	public static class AssetPath
 	{

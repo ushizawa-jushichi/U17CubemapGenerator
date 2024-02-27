@@ -1,4 +1,4 @@
-Shader "Ushino17/U17CubemapGeneratorUshino17/U17CubemapGenerator/PreviewHDRP"
+Shader "Uchuhikoshi/U17CubemapGeneratorUshino17/U17CubemapGenerator/PreviewHDRP"
 {
 	Properties
 	{

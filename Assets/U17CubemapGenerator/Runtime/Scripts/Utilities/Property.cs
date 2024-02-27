@@ -7,7 +7,7 @@ using UnityEngine;
 #nullable enable
 #pragma warning disable 8604 // Possible null reference argument for parameter '' in ''
 
-namespace Ushino17
+namespace Uchuhikoshi
 {
 	public class PropertyBase<T>
 	{

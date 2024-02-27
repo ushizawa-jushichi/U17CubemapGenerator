@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 #nullable enable
 
-namespace Ushino17
+namespace Uchuhikoshi.U17CubemapGenerator
 {
 	public partial class U17CubemapGenerator : MonoBehaviour, IU17CubemapGenerator
 	{

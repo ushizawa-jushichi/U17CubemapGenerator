@@ -9,7 +9,7 @@ using UnityEngine;
 #nullable enable
 #pragma warning disable 1998
 
-namespace Ushino17
+namespace Uchuhikoshi.U17CubemapGenerator
 {
 	public partial class U17CubemapGenerator : MonoBehaviour, IU17CubemapGenerator
 	{

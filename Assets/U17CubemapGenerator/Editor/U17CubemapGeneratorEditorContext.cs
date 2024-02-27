@@ -7,7 +7,7 @@ using UnityEngine;
 #nullable enable
 #pragma warning disable IDE1006 // naming rule
 
-namespace Ushino17
+namespace Uchuhikoshi.U17CubemapGenerator
 {
 	public sealed class U17CubemapGeneratorEditorContext
 	{
