@@ -1,4 +1,4 @@
-# UnityCubemapGenerator
+# U17CubemapGenerator
 
 - Unity Cubemap Generator Tool
 
