@@ -1,0 +1,74 @@
+# 最上位の EditorConfig ファイル
+root = true
+
+[*]
+charset = utf-8-bom
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+
+[*.cs]
+# C# の設定
+
+# 命名規則 (Unity推奨スタイル)
+dotnet_naming_rule.interface_should_be_camel_case.symbols = interface_symbols
+dotnet_naming_rule.interface_should_be_camel_case.style = interface_style
+dotnet_naming_rule.interface_should_be_camel_case.severity = suggestion
+
+# スタイル
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = false
+# アクセス修飾子を明示的に記述する (always:常に, for_non_private_members:private以外)
+dotnet_style_require_accessibility_modifiers = always:warning
+
+# 新しい改行/スペースのルール
+csharp_new_line_before_open_brace = all
+csharp_space_after_cast = false
+
+# if, for, while, else などのブロックで波括弧 `{}` を必須にする
+csharp_prefer_braces = true:warning
+
+# var を推奨する設定
+csharp_style_var_for_built_in_types = true:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = true:suggestion
+
+# using System.* 系の using を 一番上にまとめる。
+dotnet_sort_system_directives_first = true
+
+# メンバーアクセスに this. を付けるかどうか
+dotnet_style_qualification_for_field = false
+dotnet_style_qualification_for_property = false
+dotnet_style_qualification_for_method = false
+dotnet_style_qualification_for_event = false
+
+# その他一般的な設定
+resharper_access_to_static_member_via_derived_type_highlighting = none # derived static へのアクセス警告を消す [1]
+
+# --- YAML (Unity の .meta / .unity / .prefab) ---
+[*.{meta,unity,prefab,anim,controller,mat}]
+indent_size = 2
+indent_style = space
+
+# --- JSON ---
+[*.json]
+indent_size = 2
+indent_style = space
+
+# --- ShaderLab / HLSL ---
+[*.{shader,hlsl,cginc,compute}]
+indent_size = 4
+indent_style = space
+resharper_substitution_for_cleanup_profile.* = > skip
+
+[*ShaderGraph*.cs]
+resharper_substitution_for_cleanup_profile.* = > skip
+
+# Roslyn (IDE0022)
+csharp_style_expression_bodied_methods = true:suggestion
+
+# Rider / ReSharper
+method_or_operator_body = expression_body
+resharper_arrange_method_or_operator_body_highlighting = suggestion
+

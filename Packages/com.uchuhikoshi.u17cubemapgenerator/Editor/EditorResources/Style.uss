@@ -1,0 +1,104 @@
+/* Toolbar内のチェックボックス付きトグルの見た目を調整 */
+.toolbar-checkbox {
+    margin: 0;
+    padding: 0 6px;
+    height: 100%;
+    align-items: center; /* 縦方向の中央揃え */
+}
+
+/* ラベルの文字サイズなどをToolbarの他のテキストに合わせる場合 */
+.toolbar-checkbox > .unity-toggle__label {
+    font-size: 11px;
+    margin-left: 2px;
+}
+
+/* ObjectField全体の入力エリアの高さを確保 */
+.large-preview-field .unity-object-field__input {
+    height: 48px !important;
+}
+
+/* 内部のアイコンサイズを拡大 */
+.large-preview-field .unity-object-field-display__icon {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+    /* 画像が引き伸ばされないようにスケールモードを指定 */
+    -unity-background-scale-mode: scale-to-fit !important;
+}
+
+/* プレビュー画像が大きくなるので、横のテキストが中央にくるように調整 */
+.large-preview-field .unity-object-field-display__label {
+    align-self: center;
+}
+
+/* 外側のコンテナ */
+.info-container {
+    padding: 10px;
+    background-color: rgba(40, 40, 40, 0.7);
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: #444444;
+}
+
+/* 各行のラベル */
+.info-label {
+    font-size: 13px;
+    color: #DDDDDD;
+    margin-bottom: 4px;
+    /* テキストがはみ出した時に折り返す設定 */
+    white-space: normal;
+}
+
+.info-label--warning {
+    color: #FFCC00;
+}
+
+/* 処理中 (Processing...) インジケーター */
+.processing-badge {
+    position: absolute;
+    top: 28px;
+    right: 12px;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(25, 25, 25, 0.85);
+    border-radius: 12px;
+    border-width: 1px;
+    border-color: rgba(77, 166, 255, 0.5);
+    padding: 4px 10px;
+    display: none;
+}
+
+.processing-badge__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #4da6ff;
+    margin-right: 6px;
+}
+
+.processing-badge__label {
+    color: #f0f0f0;
+    font-size: 11px;
+    -unity-font-style: bold;
+}
+
+/* Face Flip ボタン */
+.face-flip-btn {
+    width: 30px;
+    height: 20px;
+    margin: 0 2px;
+    padding: 0;
+    font-size: 11px;
+    -unity-text-align: middle-center;
+}
+
+.face-flip-btn--active {
+    background-color: #2675bf;
+    border-color: #5ca8ff;
+    color: #ffffff;
+    -unity-font-style: bold;
+}
+
