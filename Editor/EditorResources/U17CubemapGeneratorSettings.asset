@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3bf1be0960dbd40836fb6d80a422bb, type: 3}
+  m_Name: U17CubemapGeneratorSettings
+  m_EditorClassIdentifier: CubemapGenerator.Editor::Uchuhikoshi.U17CubemapGenerator.CubemapGeneratorSettings
+  _styleUSS: {fileID: 7433441132597879392, guid: 17ad86f7a6757b242884bc60985cb33e, type: 3}
+  _cubemapBlurShader: {fileID: 7200000, guid: 08258539e2e2cb846883fda94f2bbb23, type: 3}
+  _meshIcosphere: {fileID: 4300000, guid: fa9a95bb5a6f547438acea6815bf16a1, type: 2}
+  _meshSkybox: {fileID: 4300000, guid: 750ef8c56f8af9d4f95775d40796d54c, type: 2}
+  _matPreview: {fileID: 2100000, guid: fb7f491b166a0c04598cbdf21d385995, type: 2}
+  _matBlitter: {fileID: 2100000, guid: 4b3991e271d96634286620da366f887d, type: 2}
+  _matSkybox: {fileID: 2100000, guid: 7fad9b7aef50b8a4eb1f2dc0763d4d8a, type: 2}
+  _dragSpeed: 1
+  _redrawDebounceTimeMs: 1
+  _renderDebounceTimeMs: 33
+  _blurDebounceTimeMs: 33
+  _resizeDebounceTimeMs: 150
+  _cameraTrackingIdlePollInterval: 0.2
+  _cameraTrackingPlayModePollInterval: 0.033
+  _cameraTrackingPositionThreshold: 0.0001
+  _cameraTrackingRotationAngleThreshold: 0.01
+  _defaultCameraNearClipPlane: 0.3
+  _defaultCameraFarClipPlane: 1000
+  _defaultHideUI: 0
+  _defaultHidePreview: 0
+  _defaultPreviewObject: 1
+  _defaultSuperSampling: 0
+  _defaultPreviewBgSkybox: 1
+  _defaultPreviewRotation: {x: 0, y: 0, z: 0}
+  _defaultPreviewRotationXEnable: 1
+  _defaultPreviewRotationYEnable: 1
+  _defaultPreviewRotationZEnable: 1
+  _defaultInputMode: 0
+  _defaultRenderSceneSyncSceneViewCamera: 0
+  _defaultRenderSceneRotatable: 1
+  _defaultRenderSceneHDR: 0
+  _defaultRenderSceneSRGB: 1
+  _defaultSixSidedXPlus: {fileID: 0}
+  _defaultSixSidedXMinus: {fileID: 0}
+  _defaultSixSidedYPlus: {fileID: 0}
+  _defaultSixSidedYMinus: {fileID: 0}
+  _defaultSixSidedZPlus: {fileID: 0}
+  _defaultSixSidedZMinus: {fileID: 0}
+  _defaultCubemap: {fileID: 0}
+  _defaultBlurEnable: 1
+  _defaultBlurAlgorithm: 0
+  _defaultBlurRoughness_GGX_SpecularIBL: 0.15
+  _defaultBlurNumSamples_GGX_SpecularIBL: 128
+  _defaultBlurRoughness_Gaussian_Bokeh: 0.15
+  _defaultBlurNumSamples_Gaussian_Bokeh: 128
+  _maxInteractiveBlurResolution: 128
+  _maxInteractiveBlurNumSamples: 64
+  _defaultOutputResolution: 1024
+  _defaultExportPath: Assets/GeneratedCubemap.png
+  _defaultOutputLayout: 0
+  _defaultEquirectangularY: 0
+  _defaultEquirectangularImportAsCubemap: 0
+  _defaultCrossOrStraightImportAsCubemap: 1
+  _defaultMatcapFillOutside: 1
+  _dropSuffixesXPlus:
+  - _xplus
+  - _posx
+  - _px
+  - +x
+  - _right
+  - _rt
+  - -right
+  - -rt
+  - -px
+  _dropSuffixesXMinus:
+  - _xminus
+  - _negx
+  - _nx
+  - -x
+  - _left
+  - _lf
+  - -left
+  - -lf
+  - -nx
+  _dropSuffixesYPlus:
+  - _yplus
+  - _posy
+  - _py
+  - +y
+  - _up
+  - _top
+  - -up
+  - -top
+  - -py
+  _dropSuffixesYMinus:
+  - _yminus
+  - _negy
+  - _ny
+  - -y
+  - _down
+  - _bottom
+  - _dn
+  - _btm
+  - -down
+  - -bottom
+  - -ny
+  _dropSuffixesZPlus:
+  - _zplus
+  - _posz
+  - _pz
+  - +z
+  - _front
+  - _forward
+  - _ft
+  - _fwd
+  - -front
+  - -ft
+  - -pz
+  _dropSuffixesZMinus:
+  - _zminus
+  - _negz
+  - _nz
+  - -z
+  - _back
+  - _backward
+  - _bk
+  - _bwd
+  - -back
+  - -bk
+  - -nz
