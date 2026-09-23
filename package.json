@@ -1,17 +1,17 @@
 {
   "name": "com.uchuhikoshi.u17cubemapgenerator",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "displayName": "U17CubemapGenerator",
   "description": "Unity Editor extension for generating, previewing, and exporting Cubemaps into various layout formats (SixSided, Cross, Equirectangular, Matcap, etc.).",
   "unity": "2023.1",
   "dependencies": {
-    "com.unity.render-pipelines.universal": "15.0.7"
   },
   "keywords": [
     "cubemap",
     "generator",
     "editor",
     "urp",
+    "hdrp",
     "matcap",
     "equirectangular",
     "texture"

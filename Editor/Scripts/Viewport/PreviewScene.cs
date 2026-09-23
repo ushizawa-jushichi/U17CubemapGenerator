@@ -1,9 +1,14 @@
+﻿#if U17_URP_SUPPORT
+using UnityEngine.Rendering.Universal;
+#endif
+#if U17_HDRP_SUPPORT
+using UnityEngine.Rendering.HighDefinition;
+#endif
 using System;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
@@ -39,9 +44,55 @@ namespace Uchuhikoshi.U17CubemapGenerator
                 Camera.scene = Scene;
                 Camera.enabled = false; // Deactivate so as not to affect GameView
 
-                var additionalData = Camera.GetUniversalAdditionalCameraData();
-                additionalData.renderShadows = false;
-                additionalData.renderPostProcessing = false;
+#if U17_URP_SUPPORT
+                if (RenderPipelineUtility.IsUniversalRenderPipelineActive())
+                {
+                    var additionalData = Camera.GetUniversalAdditionalCameraData();
+                    if (additionalData != null)
+                    {
+                        additionalData.renderShadows = false;
+                        additionalData.renderPostProcessing = false;
+                    }
+                }
+#endif
+
+#if U17_HDRP_SUPPORT
+
+                if (RenderPipelineUtility.IsHighDefinitionRenderPipelineActive())
+                {
+                    if (!Camera.TryGetComponent<HDAdditionalCameraData>(out var additionalData) ||
+                        additionalData == null)
+                    {
+                        additionalData = Camera.gameObject.AddComponent<HDAdditionalCameraData>();
+                    }
+
+                    if (additionalData != null)
+                    {
+                        additionalData.volumeLayerMask = 0;
+                        additionalData.customRenderingSettings = true;
+                        var frameSettings = additionalData.renderingPathCustomFrameSettings;
+                        var overrideMask = additionalData.renderingPathCustomFrameSettingsOverrideMask;
+
+                        void Override(FrameSettingsField field, bool value)
+                        {
+                            overrideMask.mask[(uint)field] = true;
+                            frameSettings.SetEnabled(field, value);
+                        }
+
+                        Override(FrameSettingsField.Postprocess, false);
+                        Override(FrameSettingsField.Tonemapping, false);
+                        Override(FrameSettingsField.SSAO, false);
+                        Override(FrameSettingsField.SSGI, false);
+                        Override(FrameSettingsField.SSR, false);
+                        Override(FrameSettingsField.ScreenSpaceShadows, false);
+                        Override(FrameSettingsField.Volumetrics, false);
+                        Override(FrameSettingsField.VolumetricClouds, false);
+
+                        additionalData.renderingPathCustomFrameSettings = frameSettings;
+                        additionalData.renderingPathCustomFrameSettingsOverrideMask = overrideMask;
+                    }
+                }
+#endif
 
                 var lightGo = CreatePreviewGameObject("Directional Light", typeof(Light));
                 lightGo.transform.rotation = DefaultLightRotation;
@@ -123,7 +174,8 @@ namespace Uchuhikoshi.U17CubemapGenerator
 
             try
             {
-                if (CubemapRenderUtility.IsUniversalRenderPipelineActive())
+#if U17_URP_SUPPORT
+                if (RenderPipelineUtility.IsUniversalRenderPipelineActive())
                 {
                     var request = new UniversalRenderPipeline.SingleCameraRequest
                     {
@@ -140,6 +192,7 @@ namespace Uchuhikoshi.U17CubemapGenerator
                     }
                 }
                 else
+#endif
                 {
                     Camera.Render();
                 }

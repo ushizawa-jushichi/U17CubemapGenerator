@@ -31,6 +31,10 @@ namespace Uchuhikoshi.U17CubemapGenerator
 
         [SerializeField] private Material _matBlitter = null!;
 
+        [SerializeField] private Material _matPreviewHDRP = null!;
+
+        [SerializeField] private Material _matBlitterHDRP = null!;
+
         [SerializeField] private Material _matSkybox = null!;
 
         [SerializeField] private float _dragSpeed = 1.0f;
@@ -153,8 +157,55 @@ namespace Uchuhikoshi.U17CubemapGenerator
         public ComputeShader CubemapBlurShader => _cubemapBlurShader;
         public Mesh MeshIcosphere => _meshIcosphere;
         public Mesh MeshSkybox => _meshSkybox;
-        public Material MatPreview => _matPreview;
-        public Material MatBlitter => _matBlitter;
+
+        public Material MatPreview
+        {
+            get
+            {
+                if (RenderPipelineUtility.IsHighDefinitionRenderPipelineActive())
+                {
+                    if (_matPreviewHDRP != null && _matPreviewHDRP.shader != null &&
+                        _matPreviewHDRP.shader.name != "Hidden/InternalErrorShader")
+                    {
+                        return _matPreviewHDRP;
+                    }
+
+                    _matPreviewHDRP = LoadFallbackMaterial("Materials/PreviewHDRP_Mat.mat",
+                        "Uchuhikoshi/U17CubemapGenerator/PreviewHDRP")!;
+                    if (_matPreviewHDRP != null)
+                    {
+                        return _matPreviewHDRP;
+                    }
+                }
+
+                return _matPreview;
+            }
+        }
+
+        public Material MatBlitter
+        {
+            get
+            {
+                if (RenderPipelineUtility.IsHighDefinitionRenderPipelineActive())
+                {
+                    if (_matBlitterHDRP != null && _matBlitterHDRP.shader != null &&
+                        _matBlitterHDRP.shader.name != "Hidden/InternalErrorShader")
+                    {
+                        return _matBlitterHDRP;
+                    }
+
+                    _matBlitterHDRP = LoadFallbackMaterial("Materials/BlitterHDRP_Mat.mat",
+                        "Uchuhikoshi/U17CubemapGenerator/BlitterHDRP")!;
+                    if (_matBlitterHDRP != null)
+                    {
+                        return _matBlitterHDRP;
+                    }
+                }
+
+                return _matBlitter;
+            }
+        }
+
         public Material MatSkybox => _matSkybox;
         public float DragSpeed => _dragSpeed;
         public int RedrawDebounceTimeMs => _redrawDebounceTimeMs;
@@ -287,6 +338,8 @@ namespace Uchuhikoshi.U17CubemapGenerator
             settings._meshSkybox = LoadRequiredAsset<Mesh>(assetFolder, "mesh_cube_reverse.asset");
             settings._matPreview = LoadRequiredAsset<Material>(assetFolder, "Materials/PreviewURP_Mat.mat");
             settings._matBlitter = LoadRequiredAsset<Material>(assetFolder, "Materials/BlitterURP_Mat.mat");
+            settings._matPreviewHDRP = LoadOptionalAsset<Material>(assetFolder, "Materials/PreviewHDRP_Mat.mat")!;
+            settings._matBlitterHDRP = LoadOptionalAsset<Material>(assetFolder, "Materials/BlitterHDRP_Mat.mat")!;
             settings._matSkybox = LoadRequiredAsset<Material>(assetFolder, "Materials/Skybox_Mat.mat");
 
             if (saveToAsset && !string.IsNullOrEmpty(assetPath))
@@ -328,6 +381,40 @@ namespace Uchuhikoshi.U17CubemapGenerator
             }
 
             return asset;
+        }
+
+        private static T? LoadOptionalAsset<T>(string folder, string relativePath) where T : Object
+        {
+            var path = Path.Combine(folder, relativePath).Replace("\\", "/");
+            return AssetDatabase.LoadAssetAtPath<T>(path);
+        }
+
+        private static Material? LoadFallbackMaterial(string relativePath, string shaderName)
+        {
+            var guids = AssetDatabase.FindAssets("t:U17CubemapGeneratorSettings");
+            var folder = "Packages/com.uchuhikoshi.u17cubemapgenerator/Editor/EditorResources";
+            if (guids != null && guids.Length > 0)
+            {
+                var settingsPath = AssetDatabase.GUIDToAssetPath(guids[0]);
+                if (!string.IsNullOrEmpty(settingsPath))
+                {
+                    folder = Path.GetDirectoryName(settingsPath)?.Replace("\\", "/") ?? folder;
+                }
+            }
+
+            var mat = LoadOptionalAsset<Material>(folder, relativePath);
+            if (mat != null && mat.shader != null && mat.shader.name != "Hidden/InternalErrorShader")
+            {
+                return mat;
+            }
+
+            var shader = Shader.Find(shaderName);
+            if (shader != null)
+            {
+                return new Material(shader) { hideFlags = HideFlags.DontSave };
+            }
+
+            return null;
         }
     }
 }

@@ -2,7 +2,9 @@
     "name": "CubemapGenerator.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:15fc0a57446b3144c949da3e2b9737a9"
+        "GUID:df380645f10b7bc4b97d4f5eb6303d95",
+        "GUID:15fc0a57446b3144c949da3e2b9737a9",
+        "GUID:457756d89b35d2941b3e7b37b4ece6f1"
     ],
     "includePlatforms": [
         "Editor"
@@ -13,6 +15,17 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "",
+            "define": "U17_URP_SUPPORT"
+        },
+        {
+            "name": "com.unity.render-pipelines.high-definition",
+            "expression": "",
+            "define": "U17_HDRP_SUPPORT"
+        }
+    ],
     "noEngineReferences": false
 }

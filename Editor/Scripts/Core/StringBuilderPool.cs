@@ -8,8 +8,7 @@ namespace Uchuhikoshi.U17CubemapGenerator
     /// </summary>
     public static class StringBuilderPool
     {
-        [ThreadStatic]
-        private static StringBuilder? t_Builder;
+        [ThreadStatic] private static StringBuilder? t_Builder;
 
         /// <summary>
         ///     クリア済みの共有 StringBuilder インスタンスを取得します。
