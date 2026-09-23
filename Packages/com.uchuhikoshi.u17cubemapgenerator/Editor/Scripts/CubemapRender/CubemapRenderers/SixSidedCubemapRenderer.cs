@@ -86,7 +86,8 @@ namespace Uchuhikoshi.U17CubemapGenerator
                         isImportant = true;
                         GetBuilder().Append(tex.name).Append(" (").Append(s_FaceNames[i])
                             .Append(") size (").Append(tex.width).Append('x').Append(tex.height)
-                            .Append(") does not match expected size (").Append(cubemapSize).Append('x').Append(cubemapSize)
+                            .Append(") does not match expected size (").Append(cubemapSize).Append('x')
+                            .Append(cubemapSize)
                             .Append(')').AppendLine();
                     }
 
@@ -96,7 +97,8 @@ namespace Uchuhikoshi.U17CubemapGenerator
                         isImportant = true;
                         GetBuilder().Append(tex.name).Append(" (").Append(s_FaceNames[i])
                             .Append(") format (").Append(tex.graphicsFormat)
-                            .Append(") does not match expected format (").Append(graphicsFormat).Append(')').AppendLine();
+                            .Append(") does not match expected format (").Append(graphicsFormat).Append(')')
+                            .AppendLine();
                     }
                 }
             }

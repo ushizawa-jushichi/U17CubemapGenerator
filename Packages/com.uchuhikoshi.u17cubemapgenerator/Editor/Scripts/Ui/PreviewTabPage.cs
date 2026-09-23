@@ -3,7 +3,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
-using PackageInfo = UnityEditor.PackageManager.PackageInfo;
 
 namespace Uchuhikoshi.U17CubemapGenerator
 {
@@ -15,13 +14,8 @@ namespace Uchuhikoshi.U17CubemapGenerator
         private readonly EditorState _editorState;
         private readonly Action _requestRedrawWindow;
         private readonly Settings _settings;
-        private InfoItem _infoAsyncGPUReadback = null!;
 
-        private InfoBox _infoBox = null!;
-        private InfoItem _infoIntermediateSize = null!;
-        private InfoItem _infoScreenSize = null!;
-        private InfoItem _infoVersion = null!;
-
+        private PreviewTabPageInfoBoxSection _infoBoxSection = null!;
         private Toggle _previewBgSkyboxToggle = null!;
         private EnumField _previewObjectSelectionEnumField = null!;
         private Button _resetRotationButton = null!;
@@ -68,12 +62,12 @@ namespace Uchuhikoshi.U17CubemapGenerator
 
         public void SetIntermediateSize(Vector2Int value)
         {
-            _infoIntermediateSize.SetValue(value.x > 0 && value.y > 0 ? $"{value.x}x{value.y}" : "-");
+            _infoBoxSection.SetIntermediateSize(value);
         }
 
         public void OnGeometryChanged(Vector2 size)
         {
-            _infoScreenSize.SetValue($"{Mathf.RoundToInt(size.x)}x{Mathf.RoundToInt(size.y)}");
+            _infoBoxSection.OnGeometryChanged(size);
         }
 
         protected override void OnDispose()
@@ -146,30 +140,10 @@ namespace Uchuhikoshi.U17CubemapGenerator
 
             TabContent.Add(new Separator());
 
-            _infoBox = new InfoBox();
-            TabContent.Add(_infoBox);
-
-            _infoVersion = new InfoItem("Tool Version:");
-            _infoVersion.SetValue("v" + GetPackageVersion());
-            _infoBox.Add(_infoVersion);
-
-            _infoScreenSize = new InfoItem("Screen Size:");
-            _infoBox.Add(_infoScreenSize);
-
-            _infoIntermediateSize = new InfoItem("Intermediate Size:");
-            _infoBox.Add(_infoIntermediateSize);
-
-            _infoAsyncGPUReadback = new InfoItem("AsyncGPUReadback:");
-            _infoAsyncGPUReadback.SetValue(SystemInfo.supportsAsyncGPUReadback ? "Yes" : "N/A");
-            _infoBox.Add(_infoAsyncGPUReadback);
+            _infoBoxSection = new PreviewTabPageInfoBoxSection();
+            TabContent.Add(_infoBoxSection);
 
             ConfigureUI((PreviewObjectType)_previewObjectSelectionEnumField.value);
-        }
-
-        private static string GetPackageVersion()
-        {
-            var packageInfo = PackageInfo.FindForAssembly(typeof(PreviewTabPage).Assembly);
-            return packageInfo != null ? packageInfo.version : Application.version;
         }
 
         private void ResetRotation()

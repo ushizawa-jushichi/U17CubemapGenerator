@@ -89,7 +89,8 @@ namespace Uchuhikoshi.U17CubemapGenerator
             if (!CheckGraphicsFormat(graphicsFormat))
             {
                 isValid = false;
-                GetBuilder().Append(cubemap.name).Append(" is not supported format:").Append(graphicsFormat).AppendLine();
+                GetBuilder().Append(cubemap.name).Append(" is not supported format:").Append(graphicsFormat)
+                    .AppendLine();
             }
 
             var validationMessage = sb?.ToString();

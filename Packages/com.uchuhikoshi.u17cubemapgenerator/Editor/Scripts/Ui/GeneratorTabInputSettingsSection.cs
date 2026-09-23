@@ -43,7 +43,7 @@ namespace Uchuhikoshi.U17CubemapGenerator
             Add(InputModeField);
 
             _urpRequiredHelpBox = new HelpBox(
-                "Universal Render Pipeline (URP) is not active. Scene camera capture is unavailable in Built-in / HDRP projects. Please switch to SixSided or Cubemap mode, or activate URP.",
+                "Active Render Pipeline is not supported. Scene camera capture is unavailable in Built-in projects. Please switch to SixSided or Cubemap mode, or activate URP / HDRP.",
                 HelpBoxMessageType.Warning);
             _urpRequiredHelpBox.style.maxWidth = FieldMaxWidth;
             _urpRequiredHelpBox.style.marginTop = 5;
@@ -351,10 +351,10 @@ namespace Uchuhikoshi.U17CubemapGenerator
         {
             InputModeField.SetValueWithoutNotify(inputMode);
 
-            var isUrpActive = CubemapRenderUtility.IsUniversalRenderPipelineActive();
+            var isPipelineActive = RenderPipelineUtility.IsSupportedPipelineActive();
             var displayCurrentScene = inputMode == InputModeType.CurrentScene ? DisplayStyle.Flex : DisplayStyle.None;
 
-            if (inputMode == InputModeType.CurrentScene && !isUrpActive)
+            if (inputMode == InputModeType.CurrentScene && !isPipelineActive)
             {
                 _urpRequiredHelpBox.style.display = DisplayStyle.Flex;
                 CameraField.SetEnabled(false);

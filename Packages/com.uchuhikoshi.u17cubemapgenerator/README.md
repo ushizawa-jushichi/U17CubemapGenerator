@@ -7,15 +7,15 @@
 
 [English](README.md) | [日本語](README_ja.md)
 
-A versatile, high-performance Unity Editor extension for **creating, processing, previewing, and exporting Cubemaps in real time**. From baking 360° views directly from your scene to assembling six-sided face textures, applying PBR IBL blurs, and exporting into panoramic or Matcap layouts, U17CubemapGenerator streamlines all cubemap workflows into an intuitive GUI.
+A versatile, high-performance Unity Editor extension for **creating, processing, previewing, and exporting Cubemaps in real time**. From baking 360° views directly from your scene to assembling six-sided face textures, applying PBR IBL blurs, and exporting into panoramic or Matcap layouts, U17CubemapGenerator streamlines all cubemap workflows into an intuitive GUI. Full support for Universal Render Pipeline (URP) and High Definition Render Pipeline (HDRP).
 
 ---
 
 ## Key Highlights & Features
 
-### 1. Instant Capture from Scene View
+### 1. Instant Capture from Scene View (URP & HDRP Support)
 - **Sync SceneView Camera**: Synchronizes in real time with your Scene view navigation, allowing you to bake the exact scene environment you are looking at into a 360° cubemap with a single click.
-- Supports rendering from any selected scene Camera, with camera rotation tracking (`Rotatable`) and HDR capture.
+- Supports rendering from any selected scene Camera, with camera rotation tracking (`Rotatable`), HDR capture, and automatic camera setup for URP / HDRP.
 
 ### 2. Effortless Drag-and-Drop Setup
 - Drag and drop six-sided face textures or existing Cubemap assets straight into the window to load and preview them immediately.
@@ -27,7 +27,7 @@ A versatile, high-performance Unity Editor extension for **creating, processing,
   - **Skybox**: Full 360° environment dome
   - **Sphere**: Highly reflective standard sphere
   - **Cube**: 3D cube mesh
-- Features per-axis rotation locks (X, Y, Z toggles), Reset Rotation button, Background Skybox toggle, and **Super Sampling** for crisp, anti-aliased viewport rendering.
+- Features per-axis rotation locks (X, Y, Z toggles), Reset Rotation button, Background Skybox toggle, and **Super Sampling** for crisp, anti-aliased viewport rendering, powered by dedicated pipeline shaders for URP and HDRP.
 
 ### 4. High-Quality Blurs & IBL Reflections via Sliders
 - Built-in **GGX Specular IBL** (simulating realistic PBR material roughness) and **Gaussian / Bokeh Blurs** (for soft background depth).
@@ -58,8 +58,8 @@ A versatile, high-performance Unity Editor extension for **creating, processing,
 
 ## Requirements
 - **Unity**: 2023.1 or later (fully compatible with Unity 6)
-- **Render Pipeline**: Universal Render Pipeline (URP 15.0.7+)
-  - *Note: URP is required for baking directly from scene cameras. Previewing, processing, and exporting six-sided textures and existing Cubemap assets work across all pipelines.*
+- **Render Pipeline**: Universal Render Pipeline (URP) / High Definition Render Pipeline (HDRP)
+  - *Note: URP or HDRP is required for baking directly from scene cameras. Previewing, processing, and exporting six-sided textures and existing Cubemap assets work across all pipelines.*
 
 ---
 
@@ -99,6 +99,11 @@ https://github.com/ushizawa-jushichi/U17CubemapGenerator.git
 
 <details>
 <summary><b>Expand Detailed Specifications</b></summary>
+
+### URP & HDRP Render Pipeline Adaptation
+- **Automated HDRP Camera Setup**: In HDRP environments, automatically configures `HDAdditionalCameraData` on the capture camera. Disables screen-space effects (SSAO, SSGI, SSR, Screen Space Shadows, Volumetrics, Volumetric Clouds) per face to eliminate seam discontinuities while preserving physical exposure scaling.
+- **HDRP Exposure Mode Detection**: Displays a warning when the active Volume Exposure mode is not set to `Fixed`, preventing brightness variations across cubemap faces.
+- **Pipeline-Specific Shaders**: Dynamically applies dedicated shaders (`PreviewURP` / `PreviewHDRP`, `BlitterURP` / `BlitterHDRP`) for previewing and blitting in both URP and HDRP.
 
 ### Heavy Workload & TDR Crash Protection
 - **TDR (GPU Timeout) Protection**: For heavy blur processing (>= 1024 samples or high resolutions), work is progressively split into Y-axis block chunks. Per-frame compute time is controlled to yield execution safely and display progress without causing GPU driver timeouts or Editor crashes.

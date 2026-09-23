@@ -18,6 +18,8 @@ MonoBehaviour:
   _meshSkybox: {fileID: 4300000, guid: 750ef8c56f8af9d4f95775d40796d54c, type: 2}
   _matPreview: {fileID: 2100000, guid: fb7f491b166a0c04598cbdf21d385995, type: 2}
   _matBlitter: {fileID: 2100000, guid: 4b3991e271d96634286620da366f887d, type: 2}
+  _matPreviewHDRP: {fileID: 2100000, guid: b3c4d5e6f70123456789abcdef01234a, type: 2}
+  _matBlitterHDRP: {fileID: 2100000, guid: d5e6f70123456789abcdef01234a5b6c, type: 2}
   _matSkybox: {fileID: 2100000, guid: 7fad9b7aef50b8a4eb1f2dc0763d4d8a, type: 2}
   _dragSpeed: 1
   _redrawDebounceTimeMs: 1
