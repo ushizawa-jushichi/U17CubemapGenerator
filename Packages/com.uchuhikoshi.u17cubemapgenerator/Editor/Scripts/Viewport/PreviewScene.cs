@@ -1,4 +1,4 @@
-﻿#if U17_URP_SUPPORT
+#if U17_URP_SUPPORT
 using UnityEngine.Rendering.Universal;
 #endif
 #if U17_HDRP_SUPPORT
@@ -40,6 +40,7 @@ namespace Uchuhikoshi.U17CubemapGenerator
                 Camera.cameraType = CameraType.Preview;
                 Camera.fieldOfView = DefaultCameraFieldOfView;
                 Camera.nearClipPlane = 0.01f;
+                Camera.backgroundColor = new Color(0.15f, 0.15f, 0.15f, 1.0f);
                 Camera.forceIntoRenderTexture = true;
                 Camera.scene = Scene;
                 Camera.enabled = false; // Deactivate so as not to affect GameView

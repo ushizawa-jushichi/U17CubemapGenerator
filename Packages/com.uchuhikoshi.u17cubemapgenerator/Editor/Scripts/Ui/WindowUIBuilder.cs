@@ -19,7 +19,7 @@ namespace Uchuhikoshi.U17CubemapGenerator
                     right = 0,
                     top = 0,
                     bottom = 0,
-                    backgroundColor = new Color(0f, 0f, 0f)
+                    backgroundColor = new Color(0.15f, 0.15f, 0.15f, 1.0f)
                 }
             };
 #if UNITY_6000_4_OR_NEWER

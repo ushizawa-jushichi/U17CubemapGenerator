@@ -35,6 +35,8 @@ namespace Uchuhikoshi.U17CubemapGenerator
         private Vector2 _previousDragPosition;
         private Skybox _skybox = null!;
 
+        private bool _hasCubemapBeenApplied;
+
 #if UNITY_6000_2_OR_NEWER
         private EntityId _renderTextureEntityId;
 #else
@@ -203,6 +205,16 @@ namespace Uchuhikoshi.U17CubemapGenerator
         public void ApplyCubemap(Texture cubemap)
         {
             _materials.ApplyCubemap(cubemap);
+            _hasCubemapBeenApplied = cubemap != null;
+            if (!_hasCubemapBeenApplied && _bgContainer != null)
+            {
+                _bgContainer.style.backgroundImage = StyleKeyword.None;
+#if UNITY_6000_2_OR_NEWER
+                _renderTextureEntityId = default;
+#else
+                _renderTextureInstanceID = 0;
+#endif
+            }
         }
 
         public void UpdatePreviewRotation()
@@ -233,7 +245,7 @@ namespace Uchuhikoshi.U17CubemapGenerator
 
         public void Render()
         {
-            if (_previewScene == null || !_previewScene.IsValid || _editorState.HidePreview)
+            if (_previewScene == null || !_previewScene.IsValid || _editorState.HidePreview || !_hasCubemapBeenApplied)
             {
                 return;
             }
