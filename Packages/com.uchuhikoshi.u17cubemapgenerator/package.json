@@ -1,0 +1,25 @@
+{
+  "name": "com.uchuhikoshi.u17cubemapgenerator",
+  "version": "0.9.6",
+  "displayName": "U17CubemapGenerator",
+  "description": "Unity Editor extension for generating, previewing, and exporting Cubemaps into various layout formats (SixSided, Cross, Equirectangular, Matcap, etc.).",
+  "unity": "2023.1",
+  "dependencies": {
+  },
+  "keywords": [
+    "cubemap",
+    "generator",
+    "editor",
+    "urp",
+    "hdrp",
+    "matcap",
+    "equirectangular",
+    "texture"
+  ],
+  "author": {
+    "name": "Ushizawa Jushichi",
+    "url": "https://github.com/ushizawa-jushichi"
+  },
+  "license": "MIT",
+  "_fingerprint": "b504f21fe5620d9913c5e29c5d957bd30e29b0d0"
+}

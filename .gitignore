@@ -1,0 +1,132 @@
+# Unity generated folders
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# Unity 6 cache
+Artifacts/
+DerivedData/
+
+# Memory captures
+/[Mm]emoryCaptures/
+
+# Recordings
+/[Rr]ecordings/
+
+# Blender backup files
+*.blend1
+*.blend1.meta
+
+# JetBrains Rider
+/[Aa]ssets/Plugins/Editor/JetBrains*
+*.DotSettings.user
+
+# Visual Studio
+.vs/
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pdb
+*.VC.db
+.vsconfig
+*.code-workspace
+
+# Unity meta files for auto-generated assemblies
+*.pdb.meta
+
+# Crash reports
+sysinfo.txt
+mono_crash.*
+
+# Builds
+*.apk
+*.aab
+*.unitypackage
+*.unitypackage.meta
+*.app
+
+# Crashlytics
+crashlytics-build.properties
+
+# TestRunner
+InitTestScene*.unity*
+
+# Addressables
+/ServerData
+/[Aa]ssets/StreamingAssets/aa*
+/[Aa]ssets/AddressableAssetsData/link.xml*
+/[Aa]ssets/Addressables_Temp*
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+*.bundle
+*.hash
+catalog_*.json
+catalog_*.hash
+
+# Addressables settings (keep)
+!Assets/AddressableAssetsData/**/*.asset
+!Assets/AddressableAssetsData/**/*.json
+!Assets/AddressableAssetsData/**/*.schema
+
+# Visual Scripting
+/[Aa]ssets/Unity.VisualScripting.Generated/
+
+# Auto-generated test scenes
+/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
+
+# Logs
+*.log
+*.stacktrace
+
+# Unity Cloud Diagnostics
+CrashReports/
+UnityCrashHandler64.exe
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Gradle / Android
+.gradle/
+gradle/
+*.gradle
+*.keystore
+local.properties
+
+# Xcode / iOS
+*.xcworkspace
+*.xcuserstate
+*.xcuserdata/
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+Pods/
+
+# Plastic SCM
+/PlasticSCM/
+
+# Temporary backups
+*.bak
+*.tmp
+
+# Crash dumps
+*.dmp
+
+# CodeCoverageを使わないなら
+ProjectSettings/Packages/com.unity.testtools.codecoverage/
+
+# 不要
+Assets/Resources/PerformanceTestRunInfo.*
+Assets/Resources/PerformanceTestRunSettings.*
