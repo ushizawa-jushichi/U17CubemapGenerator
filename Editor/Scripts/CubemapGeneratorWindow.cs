@@ -29,6 +29,7 @@ namespace Uchuhikoshi.U17CubemapGenerator
         private GeneratorTabPage _generatorTabPage = null!;
         private bool _isExportTaskRunning;
         private bool _isRebuildScheduled;
+        private int _rebuildDelayFrames;
         private Type? _lastRenderPipelineType;
         private PreviewTabPage _previewTabPage = null!;
 
@@ -485,24 +486,34 @@ namespace Uchuhikoshi.U17CubemapGenerator
         {
             if (_isRebuildScheduled)
             {
-                EditorApplication.delayCall -= ExecuteRebuildPreviewScene;
+                EditorApplication.update -= ExecuteRebuildPreviewScene;
                 _isRebuildScheduled = false;
             }
         }
 
         private void ScheduleRebuildPreviewScene()
         {
+            // シーン切り替えやRenderPipeline切り替え直後は、コンポーネントやパイプラインの初期化が
+            // 同一フレーム内で完了していない場合があるため、1フレーム遅延させて再構築と再描画を行う。
+            _rebuildDelayFrames = 1;
+
             if (_isRebuildScheduled)
             {
                 return;
             }
 
             _isRebuildScheduled = true;
-            EditorApplication.delayCall += ExecuteRebuildPreviewScene;
+            EditorApplication.update += ExecuteRebuildPreviewScene;
         }
 
         private void ExecuteRebuildPreviewScene()
         {
+            if (_rebuildDelayFrames > 0)
+            {
+                _rebuildDelayFrames--;
+                return;
+            }
+
             CancelScheduledRebuild();
 
             if (this != null && _coreManager != null)
